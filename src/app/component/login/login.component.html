@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 my-5">
+      <h3>Sign In</h3>
+      <form (ngSubmit)="loginForm.valid && login()"
+      #loginForm="ngForm">
+        <div class="mb-3">
+          <label class="form-label">UserName</label>
+          <input
+            type="text"
+            class="form-control"
+            autocomplete="off"
+            name="username"
+            #username="ngModel"
+            [(ngModel)]="auth.username"
+            required
+          />
+          <div class="form-text text-danger" *ngIf="username.invalid">Username cannot be Empty.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            autocomplete="off"
+            name="password"
+            #password="ngModel"
+            [(ngModel)]="auth.password"
+            required
+          />
+          <div class="form-text text-danger" *ngIf="password.invalid">Password cannot be Empty.</div>
+        </div>
+        <p class="my-2">
+          Not having an account? Click <a href="/register">here</a>
+        </p>
+        <button type="submit" class="w-100 btn btn-primary" [disabled]="loginForm.invalid">Sign In</button>
+      </form>
+    </div>
+  </div>
+</div>
