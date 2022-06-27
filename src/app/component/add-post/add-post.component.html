@@ -3,41 +3,31 @@
   <div class="row justify-content-center">
     <div class="col-8 my-5">
       <h3>Add Post</h3>
-      <form (ngSubmit)="addPost()">
+      <form (ngSubmit)="addPostForm.valid && addPost()" #addPostForm="ngForm">
         <div class="mb-3">
           <label class="form-label">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            autocomplete="off"
-            name="title"
-            [(ngModel)]="post.title"
-          />
-          <div class="form-text text-danger">This is a required field.</div>
+          <input type="text" class="form-control" autocomplete="off" name="title" #title="ngModel"
+            [(ngModel)]="post.title" required />
+          <div class="form-text text-danger" *ngIf="title.invalid">This is a required field.</div>
         </div>
         <div class="mb-3">
           <label class="form-label">Image</label>
-          <input
-            type="text"
-            class="form-control"
-            autocomplete="off"
-            name="image"
-            [(ngModel)]="post.image"
-          />
-          <div class="form-text text-danger">This is a required field.</div>
+          <input type="text" class="form-control" autocomplete="off" name="image"  #image="ngModel" [(ngModel)]="post.image" required />
+          <div class="form-text text-danger" *ngIf="image.invalid">This is a required field.</div>
         </div>
         <div class="mb-3">
           <label class="form-label">Content</label>
-          <textarea
-            class="form-control"
-            rows="5"
-            autocomplete="off"
-            name="content"
-            [(ngModel)]="post.content"
-          ></textarea>
+          <textarea class="form-control" rows="5" autocomplete="off" name="content" #content="ngModel"
+            [(ngModel)]="post.content" required></textarea>
+          <div class="form-text text-danger" *ngIf="content.invalid">This is a required field.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Content2</label>
+          <textarea class="form-control" rows="5" autocomplete="off" name="content2" #content2="ngModel"
+            [(ngModel)]="post.content2" required></textarea>
           <div class="form-text text-danger">This is a required field.</div>
         </div>
-        <button type="submit" class="w-100 btn btn-primary">Add Post</button>
+        <button type="submit" class="w-100 btn btn-primary" [disabled]="addPostForm.invalid">Add Post</button>
       </form>
     </div>
   </div>

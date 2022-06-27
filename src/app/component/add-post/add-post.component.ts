@@ -14,6 +14,7 @@ export class AddPostComponent implements OnInit {
     title: '',
     image: '',
     content: '',
+    content2: '',
   };
 
   constructor(

@@ -14,6 +14,7 @@ export class PostComponent implements OnInit {
     title: '',
     image: '',
     content: '',
+    content2: '',
   };
 
   constructor(

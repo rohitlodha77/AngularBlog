@@ -12,6 +12,9 @@
           <p class="card-text mb-auto">
             {{ post.content.substring(0, 100) }}...
           </p>
+          <p class="card-text mb-auto">
+            {{ post.content2.substring(0, 100) }}...
+          </p>
           <a href="#" class="stretched-link" (click)="readMore(post.id)">
             Continue Reading...
           </a>
